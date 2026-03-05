@@ -18,29 +18,57 @@
         <h1>Annie Nelson's Portfolio</h1>
     </header>
 
-    <section class="socials">
+    <div class="socials">
         <h2>Connect With Me</h2>
         <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
         <a href="https://github.com" target="_blank">GitHub</a>
-    </section>
+    </div>
 
-    <section class="bio">
+    <div class="bio">
         <img src="portrait.jpg" alt="Professional picture">
         <div class="bio-text">
             <p>
                 something super cool about me that is super interesting.
             </p>
         </div>
-    </section>
+    </div>
 
-    <section class="projects">
+    <div class="projects">
         <h2>Projects</h2>
-    </section>
+    </div>
+
+    <div class="contact">
+        <h2>Contact Me</h2>
+        <form>
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName">
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName">
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email">
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" placeholder="Enter your message here..."></textarea>
+
+            <label for="messageType">Type of Message:</label>
+            <select id="messageType" name="messageType">
+                <option value="business">Business Inquiry</option>
+                <option value="feedback">Feedback</option>
+                <option value="general">General Questions</option>
+            </select>
+
+            <button type="submit">Contact Us</button>
+        </form>
+    </div>
     </main>
 
     <footer>
         <p> &copy;2024 Annie Nelson. All rights reserved.</p>
     </footer>
+
+    <script src="index.js"></script>
 </body>
 
 </html>
