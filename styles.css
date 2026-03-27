@@ -12,6 +12,12 @@
 	--radius: 16px;
 }
 
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
 html {
 	scroll-behavior: smooth;
 }
@@ -146,6 +152,12 @@ h2 {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 	gap: 1rem;
+	margin: 0;
+	padding: 0;
+}
+
+.projects {
+	overflow: hidden;
 }
 
 .project a {
@@ -156,7 +168,8 @@ h2 {
 	border-radius: 14px;
 	border: 1px solid rgba(53, 94, 59, 0.25);
 	background: linear-gradient(160deg, #ffffff, #f2f8f3);
-	height: 100%;
+	height: auto;
+	overflow: hidden;
 	transition:
 		transform 0.25s ease,
 		box-shadow 0.25s ease,
@@ -173,6 +186,27 @@ h2 {
 .project h3 {
 	color: var(--hunter-green-dark);
 	margin-bottom: 0.4rem;
+}
+
+.project-title {
+	cursor: pointer;
+}
+
+.project-description {
+	max-height: 0;
+	overflow: hidden;
+	opacity: 0;
+	margin: 0;
+	transition:
+		max-height 0.35s ease,
+		opacity 0.35s ease,
+		margin-top 0.35s ease;
+}
+
+.project-description.is-visible {
+	max-height: 8rem;
+	opacity: 1;
+	margin-top: 0.35rem;
 }
 
 .project p {
