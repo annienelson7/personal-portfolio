@@ -17,34 +17,63 @@ const projects = [
 	},
 ];
 
+// Get the projects div
 const projectsDiv = document.querySelector(".projects");
 
+// Create an unordered list
 const ul = document.createElement("ul");
 
-projects.forEach((project) => {			
-	
+// Loop through the projects array
+projects.forEach((project) => {
+	// Create list item
 	const li = document.createElement("li");
 	li.className = "project";
 
+	// Create anchor element
 	const a = document.createElement("a");
 	a.setAttribute("href", project.URL);
 
+	// Set target to _blank if URL is not just "#"
 	if (project.URL !== "#") {
 		a.setAttribute("target", "_blank");
 	}
 
+	// Create header for title
 	const h3 = document.createElement("h3");
 	h3.textContent = project.Title;
+	h3.className = "project-title";
+	h3.setAttribute("role", "button");
+	h3.setAttribute("tabindex", "0");
+	h3.setAttribute("aria-expanded", "false");
 
+	// Create paragraph for description
 	const p = document.createElement("p");
 	p.textContent = project.Description;
+	p.className = "project-description";
 
+	const toggleDescription = (event) => {
+		event.preventDefault();
+		const isVisible = p.classList.toggle("is-visible");
+		h3.setAttribute("aria-expanded", String(isVisible));
+	};
+
+	h3.addEventListener("click", toggleDescription);
+	h3.addEventListener("keydown", (event) => {
+		if (event.key === "Enter" || event.key === " ") {
+			toggleDescription(event);
+		}
+	});
+
+	// Append header and paragraph to anchor
 	a.appendChild(h3);
 	a.appendChild(p);
 
+	// Append anchor to list item
 	li.appendChild(a);
 
+	// Append list item to unordered list
 	ul.appendChild(li);
 });
 
+// Append unordered list to projects div
 projectsDiv.appendChild(ul);
